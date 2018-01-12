@@ -1,0 +1,146 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="online.qingshixun.module.dao.StudentDaoMyBatis">
+	
+	<!-- 获取所有学生列表 -->
+	<select id="getStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+	</select>
+	
+	<!-- 获取Java开发学生列表 -->
+	<select id="getJavaStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.direction="Java开发" 
+	</select>
+	
+	<!-- 获取大数据学生列表 -->
+	<select id="getBigDataStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.direction="大数据"
+	</select>
+	
+	<!-- 获取软件测试学生列表 -->
+	<select id="getTestStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.direction="软件测试"
+	</select>
+	
+	<!-- 获取Web前端学生列表 -->
+	<select id="getWebStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.direction="Web前端"
+	</select>
+	
+	<!-- 获取男性学生列表 -->
+	<select id="getMaleStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.sex="男"
+	</select>
+	
+	<!-- 获取女性学生列表 -->
+	<select id="getFemaleStudents" resultType="StudentDTO">
+		SELECT
+			psi.id,
+			psi.number,
+			psi.name,
+			psi.sex,
+			psi.major,
+			psi.direction,
+			psi.skill,
+			psi.capacity
+		FROM
+			p_students_info psi
+		WHERE
+			psi.sex="女"
+	</select>
+	
+	<!-- 新增学生 -->
+	<insert id="saveStudent" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+		INSERT INTO p_students_info (
+			id,
+			number,
+			name,
+			sex,
+			major,
+			direction,
+			skill,
+			capacity
+		)
+		VALUES (
+			#{id},
+			#{number},
+			#{name},
+			#{sex},
+			#{major},
+			#{direction},
+			#{skill},
+			#{capacity}
+		)
+	</insert>
+	
+</mapper>
